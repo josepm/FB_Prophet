@@ -1,0 +1,10 @@
+{
+        "growth": ["linear"],
+        "xform": ["box-cox"],
+        "r_mode": [null],
+        "do_res": [false],
+        "changepoint_range": [0.8],
+        "holidays": [false],
+        "training": [null],
+        "outlier_coef": 3.0
+    }

@@ -1,0 +1,37 @@
+{
+  "init_date": "2016-01-01",
+  "fcast_days": 112,
+  "outlier_coef": 3.0,
+  "upr_horizon_days": 112,
+  "lwr_horizon_days": 84,
+  "data_cfg_file": "~/my_repos/capacity_planning/forecast/config/data_cfg.json",
+  "col_vals_path": "~/my_repos/capacity_planning/data/config/col_values.json",
+  "_if_exists": "append",
+  "if_exists": "replace",
+  "prophet_dict": {
+    "changepoint_prior_scale": 0.05,
+    "changepoint_range": null,
+    "changepoints": null,
+    "holidays": null,
+    "holidays_prior_scale": 10.0,
+    "interval_width": 0.8,
+    "mcmc_samples": 0,
+    "n_changepoints": null,
+    "seasonality_prior_scale": 10.0,
+    "uncertainty_samples": 1000
+  },
+  "fcast_cfg_dict": {
+    "daily": null,
+    "growth": ["linear"],
+    "_xform": ["box-cox", "quantile", "logistic", null],
+    "xform": ["box-cox", null],
+    "_regressors": [null, "additive", "multiplicative"],
+    "regressors": [null, "additive"],
+    "_weekly": [null, "additive", "multiplicative"],
+    "_yearly": [null, "additive", "multiplicative"],
+    "do_res": [true],
+    "changepoint_range": [0.6, 0.8],
+    "_holidays": [true, false],
+    "holidays": [true]
+  }
+}

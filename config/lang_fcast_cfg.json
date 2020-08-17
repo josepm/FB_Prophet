@@ -1,0 +1,67 @@
+{
+  "init_date": "2016-01-01",
+  "fcast_days": 365,
+  "upr_horizon_days": 112,
+  "lwr_horizon_days": 84,
+  "outlier_coef": 3.0,
+  "if_exists": "replace",
+  "_if_exists": "append",
+  "__if_exists": "fail",
+  "data_cfg_file": "~/my_repos/capacity_planning/forecast/config/data_cfg.json",
+  "col_vals_path": "~/my_repos/capacity_planning/data/config/col_values.json",
+  "ensemble_cfg": {
+    "phone-inbound-vol": {
+      "English_APAC": {"n_cfg": 4, "min_cnt":6, "op": "a"},
+      "English_EMEA": {"n_cfg": 14, "min_cnt":6, "op": "m"},
+      "English_NA": {"n_cfg": 4, "min_cnt": 6, "op": "m"},
+      "French": {"n_cfg": 14, "min_cnt": 6, "op": "h"},
+      "German": {"n_cfg": 6, "min_cnt": 6, "op": "m"},
+      "Italian": {"n_cfg": 4, "min_cnt": 6, "op": "m"},
+      "Japanese": {"n_cfg": 6, "min_cnt": 5, "op": "m"},
+      "Korean": {"n_cfg": 14, "min_cnt": 6, "op": "h"},
+      "Portuguese": {"n_cfg": 4, "min_cnt": 5, "op": "q"},
+      "Russian": {"n_cfg": 12, "min_cnt": 3, "op": "h"},
+      "Spanish": {"n_cfg": 14, "min_cnt": 5, "op": "m"},
+      "default": {"n_cfg": 4, "min_cnt": 5, "op": "m"}
+    },
+    "phone-inbound-aht": {
+      "English_APAC": {"n_cfg": 14, "min_cnt": 6, "op": "m"},
+      "English_EMEA": {"n_cfg": 6, "min_cnt": 5, "op": "q"},
+      "English_NA": {"n_cfg": 14, "min_cnt": 6, "op": "q"},
+      "French": {"n_cfg": 4, "min_cnt": 6, "op": "m"},
+      "German": {"n_cfg": 4, "min_cnt": 6, "op": "q"},
+      "Italian": {"n_cfg": 12, "min_cnt": 6, "op": "q"},
+      "Japanese": {"n_cfg": 8, "min_cnt": 6, "op": "m"},
+      "Korean": {"n_cfg": 8, "min_cnt": 6, "op": "m"},
+      "Portuguese": {"n_cfg": 14, "min_cnt": 5, "op": "m"},
+      "Russian": {"n_cfg": 12, "min_cnt": 6, "op": "m"},
+      "Spanish": {"n_cfg": 4, "min_cnt": 6, "op": "m"},
+      "default": {"n_cfg": 14, "min_cnt": 4, "op": "q"}
+    },
+    "phone-outbound-aht": {
+      "English_APAC": {"n_cfg":12, "min_cnt": 3, "op": "q"},
+      "English_EMEA": {"n_cfg": 4, "min_cnt": 6, "op": "h"},
+      "English_NA": {"n_cfg": 12, "min_cnt": 6, "op": "q"},
+      "French": {"n_cfg": 10, "min_cnt": 4, "op": "q"},
+      "German": {"n_cfg": 6, "min_cnt": 6, "op": "m"},
+      "Italian": {"n_cfg": 14, "min_cnt": 6, "op": "q"},
+      "Japanese": {"n_cfg": 8, "min_cnt": 6, "op": "q"},
+      "Korean": {"n_cfg": 6, "min_cnt": 3, "op": "h"},
+      "Portuguese": {"n_cfg": 4, "min_cnt": 6, "op": "q"},
+      "Russian": {"n_cfg": 8, "min_cnt": 4, "op": "a"},
+      "Spanish": {"n_cfg": 8, "min_cnt": 6, "op": "m"},
+      "default": {"n_cfg": 12, "min_cnt": 6, "op": "q"}
+    }
+  },
+  "prophet_dict": {
+    "changepoint_prior_scale": 1.0,
+    "changepoints": null,
+    "holidays": null,
+    "holidays_prior_scale": 10.0,
+    "interval_width": 0.8,
+    "mcmc_samples": 0,
+    "n_changepoints": 25,
+    "seasonality_prior_scale": 10.0,
+    "uncertainty_samples": 1000
+  }
+}

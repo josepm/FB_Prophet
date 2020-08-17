@@ -1,0 +1,185 @@
+{
+  "ticket_count": {
+    "ycol": "ticket_count",
+    "agg_dict": {"ticket_count":  "sum"},
+    "business_units": ["Homes", "China", "Experiences"],
+    "regressors": ["booking_count", "checkin_count", "monthly"],
+    "outlier_coef": [3],
+    "fcast_days": 490,
+    "do_fcast": true,
+    "pre-processing": null,
+    "_ens": {"default":  "lasso"}
+  },
+  "prod_hours": {
+    "ycol": "prod_hours",
+    "agg_dict": {"prod_hours":  "sum"},
+    "business_units": ["Homes", "China", "Experiences"],
+    "regressors": ["ticket_count", "tenure", "booking_count", "checkin_count","monthly"],
+    "outlier_coef": [3],
+    "fcast_days": 490,
+    "do_fcast": true,
+    "pre-processing": null,
+    "_ens": {"default":  "XGBRegressor"}
+  },
+  "ticket_count_Homes": {
+    "ycol": "ticket_count",
+    "agg_dict": {"ticket_count":  "sum"},
+    "bu": "Homes",
+    "regressors": ["booking_count", "checkin_count","monthly"],
+    "outlier_coef": [3],
+    "fcast_days": 490,
+    "do_fcast": true,
+    "pre-processing": null,
+    "_ens": {"default":  "lasso", "6":  "XGBRegressor", "7":  "XGBRegressor", "8": "XGBRegressor"}
+  },
+  "prod_hours_Homes": {
+    "ycol": "prod_hours",
+    "agg_dict": {"prod_hours":  "sum"},
+    "bu": "Homes",
+    "regressors": ["ticket_count_Homes", "tenure","booking_count", "checkin_count","monthly"],
+    "outlier_coef": [3],
+    "fcast_days": 490,
+    "do_fcast": true,
+    "ceiling": 2.0,
+    "floor": 0.0,
+    "pre-processing": null,
+    "_ens": {"default":  "lasso", "6":  "XGBRegressor", "7":  "XGBRegressor", "8": "XGBRegressor"}
+  },
+  "ticket_count_China": {
+    "ycol": "ticket_count",
+    "agg_dict": {"ticket_count":  "sum"},
+    "bu": "China",
+    "regressors": ["booking_count", "checkin_count","monthly"],
+    "outlier_coef": [3],
+    "fcast_days": 490,
+    "do_fcast": true,
+    "pre-processing": null,
+    "_ens": {"default":  "lasso"}
+  },
+  "prod_hours_China": {
+    "ycol": "prod_hours",
+    "agg_dict": {"prod_hours":  "sum"},
+    "bu": "China",
+    "regressors": ["ticket_count_China", "tenure","booking_count", "checkin_count","monthly"],
+    "outlier_coef": [3],
+    "fcast_days": 490,
+    "do_fcast": true,
+    "ceiling": 2.0,
+    "floor": 0.0,
+    "pre-processing": null,
+    "_ens": {"default":  "lasso"}
+  },
+  "ticket_count_Experiences": {
+    "ycol": "ticket_count",
+    "agg_dict": {"ticket_count":  "sum"},
+    "bu": "Experiences",
+    "regressors": ["booking_count", "checkin_count","monthly"],
+    "outlier_coef": [3],
+    "fcast_days": 490,
+    "do_fcast": true,
+    "pre-processing": null,
+    "_ens": {"default":  "XGBRegressor"}
+  },
+  "prod_hours_Experiences": {
+    "ycol": "prod_hours",
+    "agg_dict": {"prod_hours":  "sum"},
+    "bu": "Experiences",
+    "regressors": ["ticket_count_Experiences", "tenure","booking_count", "checkin_count","monthly"],
+    "outlier_coef": [3],
+    "fcast_days": 490,
+    "do_fcast": true,
+    "ceiling": 2.0,
+    "floor": 0.0,
+    "pre-processing": null,
+    "_ens": {"default":  "XGBRegressor"}
+  },
+  "booking_count": {
+    "ycol": "booking_count",
+    "agg_dict": {"booking_count":  "sum"},
+    "r_col": {"booking_count": "sum"},
+    "outlier_coef": [3.0],
+    "do_fcast": true,
+    "fcast_days": 490,
+    "regressors": ["monthly"],
+    "pre-processing": null,
+    "_ens": {"default":  "AdaBoostRegressor"}
+  },
+  "checkin_count": {
+    "ycol": "checkin_count",
+    "agg_dict": {"checkin_count":  "sum"},
+    "r_col": {"checkin_count": "sum"},
+    "regressors": ["monthly"],
+    "outlier_coef": [3.0],
+    "do_fcast": true,
+    "fcast_days": 490,
+    "pre-processing": null,
+    "_ens": {"default":  "XGBRegressor"}
+  },
+  "tenure": {
+    "ycol": "tenure_days",
+    "agg_dict": {"tenure_days":  "mean"},
+    "r_col": {"_impute": "mean"},
+    "do_fcast": true,
+    "regressors": ["monthly"],
+    "fcast_days": 490,
+    "gb_cols":  ["language"],
+    "pre-processing": null,
+    "_ens": {"default":  "lasso"}
+  },
+  "summer_peak": {
+    "ycol": "summer_peak",
+     "r_col": {"summer_peak":  null},
+     "do_fcast": false
+  },
+  "monthly": {
+    "ycol": null,
+    "r_col": null,
+    "do_fcast": false
+  },
+  "weekly": {
+    "ycol": null,
+    "r_col": null,
+    "do_fcast": false
+  },
+  "xmas_peak": {
+    "ycol": "xmas_peak",
+    "r_col": {"xmas_peak":  null},
+    "do_fcast": false
+  },
+  "post_peak": {
+    "ycol": "post_peak",
+    "r_col": {"post_peak":  null},
+    "do_fcast": false
+  },
+  "phone-inbound-vol": {
+    "abandon_par": 10,
+    "check_cols": ["offered", "accepted", "abandons"],
+    "agg_dict": {"entered": "sum", "offered": "sum", "accepted": "sum", "short_abandons": "sum", "abandons": "sum"},
+    "training": [112, 366, 731, 1096],
+    "do_fcast": true,
+    "regressors": ["bookings", "checkins", "contact-rate","summer_peak"]
+  },
+  "phone-outbound-vol": {
+    "check_cols": ["calls"],
+    "agg_dict": {"calls": "sum"},
+    "training": [112, 366, 731, 1096],
+    "regressors": ["bookings", "checkins", "contact-rate","summer_peak"],
+    "do_fcast": true
+  },
+  "phone-inbound-aht": {
+    "data_path": "~/my_tmp/cleaned/phone-aht_cleaned_",
+    "agg_dict": {"calls": "sum", "agent_mins": "sum"},
+    "check_cols": ["calls", "agent_mins"],
+    "training": [84, 112, 366, 731],
+    "do_fcast": true,
+    "regressors": ["tenure"]
+  },
+  "phone-outbound-aht": {
+    "data_path": "~/my_tmp/cleaned/phone-aht_cleaned_",
+    "agg_dict": {"calls": "sum", "agent_mins": "sum"},
+    "check_cols": ["calls", "agent_mins"],
+    "training": [84, 112, 366, 731],
+    "do_fcast": true,
+    "regressors": ["tenure"]
+  }
+}

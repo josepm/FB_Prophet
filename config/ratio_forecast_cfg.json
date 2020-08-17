@@ -1,0 +1,10 @@
+{
+  "ratio_windows": {
+        "default": {"start": "2020-01-01", "end": "2020-01-31"},
+        "English_APAC": {"start": "2019-12-01", "end": "2019-12-31"},
+        "Mandarin": {"start": "2019-12-01", "end": "2019-12-31"}
+  },
+  "_adjust_date": null,
+  "adjust_date": "2020-03-28",
+  "data_date": "2019-12-28"
+}
