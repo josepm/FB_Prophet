@@ -14,7 +14,6 @@ os.environ['NUMEXPR_MAX_THREADS'] = '4' if platform.system() == 'Darwin' else '3
 
 import sys
 import pandas as pd
-
 from capacity_planning.forecast.utilities.language import ens_processing as ep              # must be first: limit on objects loadable with TLS?
 from capacity_planning.forecast.utilities.language import fcast_processing as fp
 from capacity_planning.forecast.utilities.language import data_processing as dp
